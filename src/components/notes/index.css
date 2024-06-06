@@ -1,0 +1,11 @@
+.notes-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2ch;
+  background-color: #f7ecdc;
+  width: 70vw;
+  height: 100vh;
+}
+
+.note {
+}
