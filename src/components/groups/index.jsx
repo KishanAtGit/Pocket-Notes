@@ -1,8 +1,23 @@
 import Group from "./Group";
 import index from "../notes";
 import "./index.css";
+import { useState } from "react";
 
-export default function Groups({ groupsandNotes, setSelectedGroup }) {
+export default function Groups({
+  groupsandNotes,
+  setGroupsAndNotes,
+  setSelectedGroup,
+}) {
+  const [input, setInput] = useState("");
+  console.log(input);
+
+  const handleInput = e => {
+    setInput(e.target.value);
+    setGroupsAndNotes(prev => {
+      return [...prev.group, input];
+    });
+  };
+
   return (
     <div className='group-section'>
       <h1>Pocket Notes</h1>
@@ -17,6 +32,9 @@ export default function Groups({ groupsandNotes, setSelectedGroup }) {
             setSelectedGroup={setSelectedGroup}
           />
         ))}
+      </div>
+      <div>
+        <input type='text' onChange={handleInput} value={input} />
       </div>
     </div>
   );
