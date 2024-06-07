@@ -1,40 +1,47 @@
+import { useState } from "react";
 import Group from "./Group";
 import index from "../notes";
 import "./index.css";
-import { useState } from "react";
 
 export default function Groups({
   groupsandNotes,
   setGroupsAndNotes,
   setSelectedGroup,
+  selectedGroup,
 }) {
   const [input, setInput] = useState("");
-  console.log(input);
 
-  const handleInput = e => {
-    setInput(e.target.value);
-    setGroupsAndNotes(prev => {
-      return [...prev.group, input];
-    });
+  const handleInput = () => {
+    input !== "" &&
+      setGroupsAndNotes(prev => {
+        return [...prev, { group: input, notes: [] }];
+      });
+    setInput("");
   };
 
   return (
     <div className='group-section'>
       <h1>Pocket Notes</h1>
-      <div>
-        <button>+ Create Notes group</button>
+      <div id='create-Groups-Button'>
+        <button onClick={handleInput}>+ Create Notes group</button>
       </div>
-      <div>
-        {groupsandNotes.group.map((item, i) => (
+      <div className='groups'>
+        {groupsandNotes.map((item, i) => (
           <Group
-            group={item}
+            group={item.group}
             key={"xyz" + i}
+            selectedGroup={selectedGroup}
             setSelectedGroup={setSelectedGroup}
           />
         ))}
       </div>
       <div>
-        <input type='text' onChange={handleInput} value={input} />
+        <input
+          type='text'
+          id='inputText'
+          onChange={e => setInput(e.target.value)}
+          value={input}
+        />
       </div>
     </div>
   );

@@ -1,4 +1,55 @@
 .group-section {
-  width: 30vw;
+  width: 23vw;
   height: 100vh;
+}
+
+#create-Groups-Button {
+  display: flex;
+  justify-content: center;
+}
+
+#create-Groups-Button > button {
+  background-color: black;
+  color: white;
+  padding: 0.5em;
+  font-size: 1.3em;
+  width: 18vw;
+  border-radius: 2em;
+  border: none;
+  cursor: pointer;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1ch;
+  margin: 2em 1em;
+  margin-right: 0;
+}
+.groups > div {
+  display: flex;
+  gap: 2ch;
+  cursor: pointer;
+  align-items: center;
+  padding: 0.6em;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+}
+.group > div::selection {
+  background-color: #f7ecdc;
+}
+
+#groupImage {
+  border: none;
+  border-radius: 1em;
+  background-color: blue;
+  color: white;
+  width: 2.4em;
+  height: 2.1em;
+  align-items: center;
+  text-align: center;
+}
+
+#group {
+  font-size: 1.2em;
 }
