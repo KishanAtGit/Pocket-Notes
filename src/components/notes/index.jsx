@@ -26,20 +26,16 @@ export default function index({
 
   return (
     <div className='notes-section'>
-      <div>
-        {selectedGroup !== "" ? (
-          groupsandNotes.map(item => {
-            return (
-              item.group === selectedGroup &&
-              item.notes.map((note, i) => (
-                <Note note={note} key={"edfre" + i} />
-              ))
-            );
-          })
-        ) : (
-          <Home />
-        )}
-      </div>
+      {selectedGroup !== "" ? (
+        groupsandNotes.map(item => {
+          return (
+            item.group === selectedGroup &&
+            item.notes.map((note, i) => <Note note={note} key={"edfre" + i} />)
+          );
+        })
+      ) : (
+        <Home />
+      )}
       <div
         style={{
           visibility: `${selectedGroup !== "" ? "visible" : "hidden"}`,
