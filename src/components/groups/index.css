@@ -1,10 +1,23 @@
 .group-section {
   width: 23vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2ch;
+  font-weight: 500;
+}
+
+#group-heading {
+  font-size: 1.8em;
+  margin: 4vh 0 2vh 1vw;
 }
 
 #create-Groups-Button {
+  margin-left: 2vw;
+}
+#create-Groups-Button > button {
   display: flex;
+  gap: 1ch;
   justify-content: center;
 }
 
@@ -22,36 +35,42 @@
 .groups {
   display: flex;
   flex-direction: column;
-  gap: 1ch;
-  margin: 2em 1em;
+  justify-content: space-between;
   margin-right: 0;
+  margin-left: 1.5em;
 }
 .groups > div {
   display: flex;
   gap: 2ch;
   cursor: pointer;
   align-items: center;
-  padding: 0.6em;
-  border-top-left-radius: 1em;
-  border-bottom-left-radius: 1em;
+  padding: 0.4em;
+  border-top-left-radius: 1.5em;
+  border-bottom-left-radius: 1.5em;
 }
 .group > div::selection {
   background-color: #f7ecdc;
 }
 
 #groupImage {
-  /* border: none;
-  border-radius: 1em; */
-  /* background-color: blue; */
-  /* color: white;
-  width: 2.4em;
-  height: 2.1em;
-  align-items: center;
-  text-align: center; */
+  position: relative;
+}
+#groupImage > img {
+  height: 7vh;
+}
+
+#profile-label {
+  position: absolute;
+  font-size: 1.2em;
+  color: white;
+  text-align: center;
+  margin-left: 0.5em;
+  margin-top: -0.2em;
 }
 
 #group {
   font-size: 1.2em;
+  align-self: center;
 }
 
 .modal {
@@ -70,32 +89,50 @@
   display: flex;
   flex-direction: column;
   gap: 3ch;
-}
-
-.modal > div {
+  font-weight: 500;
 }
 
 .modal > div:nth-child(1) {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
-.modal > div:nth-child(2) {
-  font-size: 1em;
-  display: flex;
-  flex-direction: row;
-  gap: 3ch;
-}
-
+.modal > div:nth-child(2),
 .modal > div:nth-child(3) {
   font-size: 1em;
   display: flex;
   flex-direction: row;
   gap: 3ch;
+  align-items: center;
+}
+
+#modal-input {
+  padding: 0.5em;
+  width: 20vw;
+  border: 2px solid #cccccc;
+  border-radius: 1em;
+  font-size: 1em;
+}
+#modal-input::placeholder {
+  color: #979797;
+}
+
+#color-group > span > img {
+  height: 5vh;
+  cursor: pointer;
 }
 
 #create-button {
   position: absolute;
   right: 3vw;
   bottom: 3vh;
-  width: fit-content;
+  width: 6vw;
+  height: 4vh;
+  border-radius: 0.8em;
+  background-color: black;
+  color: white;
+  padding: 0.2em;
+  align-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  cursor: pointer;
 }

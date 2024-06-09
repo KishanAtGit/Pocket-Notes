@@ -9,22 +9,23 @@ export default function Groups({
   setGroupsAndNotes,
   setSelectedGroup,
   selectedGroup,
+  setCurrentSelectedGroup,
 }) {
   const [modalOpen, setModalOpen] = useState(false);
-  const [profilebackground, setProfileBackground] = useState([]);
 
   const handleInput = (input, setInput, choosenColor) => {
     input !== "" &&
       setGroupsAndNotes(prev => {
-        return [...prev, { group: input, notes: [] }];
+        return [
+          ...prev,
+          {
+            groupName: input,
+            groupProfileBackground: choosenColor,
+            dateAndTime: [],
+            notes: [],
+          },
+        ];
       });
-    setProfileBackground(prev => {
-      return [...prev, choosenColor];
-      // let temp = prev;
-      // temp.push(choosenColor);
-      // return temp;
-    });
-    // console.log(profilebackground);
     setInput("");
   };
 
@@ -32,19 +33,22 @@ export default function Groups({
 
   return (
     <div className='group-section'>
-      <h1>Pocket Notes</h1>
+      <div id='group-heading'>Pocket Notes</div>
       <div id='create-Groups-Button'>
-        <button onClick={openModal}>+ Create Notes group</button>
+        <button onClick={openModal}>
+          <span>+</span> <span>Create Notes group</span>
+        </button>
       </div>
       <div className='groups'>
         {groupsandNotes.map((item, i) => (
           <Group
-            group={item.group}
+            group={item.groupName}
             index={i}
             key={"xyz" + i}
             selectedGroup={selectedGroup}
             setSelectedGroup={setSelectedGroup}
-            profilebackground={profilebackground}
+            groupProfileBackground={item.groupProfileBackground}
+            setCurrentSelectedGroup={setCurrentSelectedGroup}
           />
         ))}
       </div>

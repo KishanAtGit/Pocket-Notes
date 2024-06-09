@@ -1,17 +1,9 @@
-import { useEffect, useState } from "react";
 import { Clock } from "./Clock";
 
-export default function Note({ note }) {
-  const [currentTime, setCurrentTime] = useState("");
-
-  useEffect(() => {
-    console.log("currentTime");
-    setCurrentTime(new Date());
-  });
-
+export default function Note({ note, dateAndTime }) {
   return (
-    <div style={{ display: "flex", gap: "2ch" }}>
-      <Clock currentTime={currentTime} />
+    <div className='notes'>
+      <Clock currentTime={dateAndTime} />
       <div className='note'>{note}</div>
     </div>
   );

@@ -34,11 +34,12 @@ export default function ModalComponent({
       ariaHideApp={false}
       className='modal'
     >
-      <div>Create New Notes Group</div>
+      <div>Create New Notes group</div>
       <div>
         <span>Group Name</span>
         <span>
           <input
+            id='modal-input'
             type='text'
             placeholder='Enter your group name...'
             onChange={e => setInput(e.target.value)}
@@ -48,7 +49,7 @@ export default function ModalComponent({
       </div>
       <div>
         <div>Choose Color</div>
-        <div style={{ display: "flex", gap: "1ch" }}>
+        <div id='color-group' style={{ display: "flex", gap: "1ch" }}>
           <span onClick={() => setChoosenColor(color1)}>
             <img src={color1} alt='color1' />
           </span>

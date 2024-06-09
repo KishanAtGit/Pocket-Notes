@@ -1,12 +1,21 @@
 export default function Group({
   group,
-  index,
   setSelectedGroup,
   selectedGroup,
-  profilebackground,
+  groupProfileBackground,
+  setCurrentSelectedGroup,
 }) {
   const handleSelection = () => {
     setSelectedGroup(group);
+    setCurrentSelectedGroup(prev => ({
+      ...prev,
+      groupName: group,
+      groupProfileBackground: groupProfileBackground,
+      // const tempPrev = prev;
+      // tempPrev.groupName = group;
+      // tempPrev.groupProfileBackground = groupProfileBackground;
+      // return tempPrev;
+    }));
   };
 
   return (
@@ -18,8 +27,9 @@ export default function Group({
         }}
       >
         <span id='groupImage'>
-          <img src={profilebackground[index]} alt='' />
+          <img src={groupProfileBackground} alt='' />
         </span>
+        <span id='profile-label'>DM</span>
         <span id='group'>{group}</span>
       </div>
     </>
