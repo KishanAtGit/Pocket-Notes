@@ -2,22 +2,26 @@ import { useState, useEffect } from "react";
 import Home from "./Home";
 import Note from "./Note";
 import "./index.css";
+import leftArrow from "../../assets/Vector.png";
 
 export default function index({
   groupsandNotes,
   setGroupsAndNotes,
-  selectedGroup,
   currentSelectedGroup,
   setCurrentSelectedGroup,
 }) {
   const [inputData, setInputData] = useState("");
+
+  const handleInputOnEnterKey = e => {
+    if (e.key === "Enter") handleInput();
+  };
 
   const handleInput = () => {
     inputData !== "" &&
       setGroupsAndNotes(prev => {
         let tempState = prev;
         let tempIndex = tempState.findIndex(
-          prev => prev.groupName === selectedGroup
+          prev => prev.group.name === currentSelectedGroup.groupName
         );
         tempState[tempIndex].notes.push(inputData);
 
@@ -30,35 +34,45 @@ export default function index({
     setInputData("");
   };
 
-  // useEffect(() => {
-  //   localStorage.setItem("Data", JSON.stringify(groupsandNotes));
-  // }, [groupsandNotes]);
-
   return (
     <div
       className='notes-section'
       style={{
-        height: `${selectedGroup !== "" ? "98vh" : "100vh"}`,
-        borderBottomLeftRadius: `${selectedGroup !== "" ? "1em" : "0"}`,
+        height: `${currentSelectedGroup.groupName !== "" ? "98vh" : "100vh"}`,
+        borderBottomLeftRadius: `${
+          currentSelectedGroup.groupName !== "" ? "1em" : "0"
+        }`,
       }}
     >
       <div
         style={{
-          visibility: `${selectedGroup !== "" ? "visible" : "hidden"}`,
+          visibility: `${
+            currentSelectedGroup.groupName !== "" ? "visible" : "hidden"
+          }`,
         }}
         className='navbar'
       >
+        <span
+          onClick={() =>
+            setCurrentSelectedGroup(prev => ({ ...prev, groupName: "" }))
+          }
+          style={{ cursor: "pointer" }}
+        >
+          <img src={leftArrow} alt='' />
+        </span>
         <span id='navbar-groupImage'>
           <img src={currentSelectedGroup.groupProfileBackground} alt='' />
         </span>
-        <span id='navbar-profile-text'>DM</span>
+        <span id='navbar-profile-text'>
+          {currentSelectedGroup.groupShortForm}
+        </span>
         <span id='navbar-label'>{currentSelectedGroup.groupName}</span>
       </div>
-      {selectedGroup !== "" ? (
+      {currentSelectedGroup.groupName !== "" ? (
         <div className='note-section'>
           {groupsandNotes.map(item => {
             return (
-              item.groupName === selectedGroup &&
+              item.group.name === currentSelectedGroup.groupName &&
               item.notes.map((note, i) => (
                 <Note
                   item={item}
@@ -77,12 +91,15 @@ export default function index({
       <div
         id='notes-text-field'
         style={{
-          visibility: `${selectedGroup !== "" ? "visible" : "hidden"}`,
+          visibility: `${
+            currentSelectedGroup.groupName !== "" ? "visible" : "hidden"
+          }`,
         }}
       >
         <textarea
           type='text'
           onChange={e => setInputData(e.target.value)}
+          onKeyUp={handleInputOnEnterKey}
           value={inputData}
           placeholder='Enter your text here...........'
         />

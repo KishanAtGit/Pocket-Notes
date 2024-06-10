@@ -10,7 +10,7 @@
 }
 
 .note-section {
-  height: 60vh;
+  height: 55vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -30,11 +30,14 @@
 #navbar-groupImage {
   position: relative;
 }
+#navbar-groupImage > img {
+  height: 7vh;
+}
 
 #navbar-profile-text {
   position: absolute;
   color: white;
-  margin-left: 0.6em;
+  margin-left: 2.7em;
   margin-top: -0.2em;
 }
 
@@ -43,7 +46,7 @@
 }
 
 .notes-home {
-  margin-top: 26vh;
+  margin-top: 18vh;
   height: 100%;
 }
 
@@ -100,4 +103,51 @@
   color: #353535;
   font-weight: 500;
   width: 6vw;
+}
+
+@media (max-width: 400px) {
+  .notes-section {
+    width: 100vw;
+    height: 100vh;
+    font-size: 0.9em;
+  }
+
+  #navbar-profile-text {
+    position: absolute;
+    color: white;
+    margin-left: 3em;
+    margin-top: -0.3em;
+  }
+
+  .notes {
+    gap: 5ch;
+  }
+
+  .date-time {
+    width: 25vw;
+  }
+
+  .note-section {
+    height: 64vh;
+    margin-bottom: 2vh;
+    margin-top: 1vh;
+  }
+
+  #notes-text-field {
+    bottom: -1em;
+    height: 18vh;
+    width: 91vw;
+    border-bottom-left-radius: 0;
+  }
+
+  #notes-text-field > textarea {
+    width: 84vw;
+    height: 12vh;
+    bottom: 2vh;
+    border-radius: 0.4em;
+    border: none;
+    font-size: 1.3em;
+    resize: none;
+    -ms-overflow-style: none;
+  }
 }

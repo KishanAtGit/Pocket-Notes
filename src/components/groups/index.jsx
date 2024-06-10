@@ -1,5 +1,4 @@
 import { useState } from "react";
-import index from "../notes";
 import Group from "./Group";
 import ModalComponent from "./Modal";
 import "./index.css";
@@ -7,11 +6,21 @@ import "./index.css";
 export default function Groups({
   groupsandNotes,
   setGroupsAndNotes,
-  setSelectedGroup,
-  selectedGroup,
+  currentSelectedGroup,
   setCurrentSelectedGroup,
 }) {
   const [modalOpen, setModalOpen] = useState(false);
+
+  // {
+  //   group: { name: "JavaScript", shortForm: "JS" },
+  //   groupProfileBackground: "",
+  //   dateAndTime: [],
+  //   notes: [
+  //     "sfhbhksdbkh JavaScript ahfjds ahkfh",
+  //     "jcjhg jfgsdg JavaScript jgfj,sjhfjhkhs",
+  //     "kshfkjshkh JavaScript sfhiush shfj",
+  //   ],
+  // },
 
   const handleInput = (input, setInput, choosenColor, setChoosenColor) => {
     if (input !== "" && choosenColor !== "") {
@@ -19,7 +28,11 @@ export default function Groups({
         return [
           ...prev,
           {
-            groupName: input,
+            group: {
+              ...prev.group,
+              name: input,
+              shortForm: input.substring(0, 2).toUpperCase(),
+            },
             groupProfileBackground: choosenColor,
             dateAndTime: [],
             notes: [],
@@ -45,12 +58,11 @@ export default function Groups({
       <div className='groups'>
         {groupsandNotes.map((item, i) => (
           <Group
-            group={item.groupName}
+            group={item.group}
             index={i}
             key={"xyz" + i}
-            selectedGroup={selectedGroup}
-            setSelectedGroup={setSelectedGroup}
             groupProfileBackground={item.groupProfileBackground}
+            currentSelectedGroup={currentSelectedGroup}
             setCurrentSelectedGroup={setCurrentSelectedGroup}
           />
         ))}

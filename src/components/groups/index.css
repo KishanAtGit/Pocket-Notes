@@ -13,7 +13,8 @@
 }
 
 #create-Groups-Button {
-  margin-left: 2vw;
+  /* margin-left: 2vw; */
+  align-self: center;
 }
 #create-Groups-Button > button {
   display: flex;
@@ -49,14 +50,14 @@
   background-color: #f7ecdc;
 }
 
-#groupImage {
+.groupImage {
   position: relative;
 }
-#groupImage > img {
-  height: 7vh;
+.groupImage > img {
+  height: 8vh;
 }
 
-#profile-label {
+.profile-label {
   position: absolute;
   font-size: 1.2em;
   color: white;
@@ -65,7 +66,7 @@
   margin-top: -0.2em;
 }
 
-#group {
+.group {
   font-size: 1.2em;
   align-self: center;
 }
@@ -134,8 +135,64 @@
   cursor: pointer;
 }
 
-@media (max-width: 720px) {
-  /* #group-heading {
-    font-size: 0.5em;
-  } */
+@media only screen and (max-width: 400px) {
+  .group-section {
+    width: 100vw;
+  }
+
+  #group-heading {
+    margin: 4vh 0 1vh 5vw;
+  }
+
+  #create-Groups-Button {
+    align-self: center;
+  }
+  #create-Groups-Button > button {
+    width: 80vw;
+  }
+
+  .groups {
+    margin-left: 2.1em;
+  }
+
+  .groupImage > img {
+    height: 9vh;
+  }
+
+  .profile-label {
+    margin-left: 0.8em;
+  }
+
+  .modal {
+    width: 66vw;
+    height: 26vh;
+    gap: 2ch;
+    border-radius: 1em;
+  }
+
+  .modal > div:nth-child(2),
+  .modal > div:nth-child(3) {
+    font-size: 0.9em;
+    gap: 2ch;
+  }
+
+  #modal-input {
+    width: 38vw;
+    border-radius: 0.8em;
+    font-size: 0.9em;
+  }
+
+  #color-group > span > img {
+    height: 3vh;
+  }
+
+  #create-button {
+    right: 18vw;
+    bottom: 3vh;
+    width: 42vw;
+    height: 4vh;
+    border-radius: 0.5em;
+    padding: 0.2em;
+    font-size: 1em;
+  }
 }

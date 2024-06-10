@@ -1,20 +1,15 @@
 export default function Group({
   group,
-  setSelectedGroup,
-  selectedGroup,
   groupProfileBackground,
+  currentSelectedGroup,
   setCurrentSelectedGroup,
 }) {
   const handleSelection = () => {
-    setSelectedGroup(group);
     setCurrentSelectedGroup(prev => ({
       ...prev,
-      groupName: group,
+      groupName: group.name,
+      groupShortForm: group.shortForm,
       groupProfileBackground: groupProfileBackground,
-      // const tempPrev = prev;
-      // tempPrev.groupName = group;
-      // tempPrev.groupProfileBackground = groupProfileBackground;
-      // return tempPrev;
     }));
   };
 
@@ -23,14 +18,16 @@ export default function Group({
       <div
         onClick={handleSelection}
         style={{
-          backgroundColor: `${selectedGroup === group ? "#F7ECDC" : "white"}`,
+          backgroundColor: `${
+            currentSelectedGroup.groupName === group.name ? "#F7ECDC" : "white"
+          }`,
         }}
       >
-        <span id='groupImage'>
+        <span className='groupImage'>
           <img src={groupProfileBackground} alt='' />
         </span>
-        <span id='profile-label'>DM</span>
-        <span id='group'>{group}</span>
+        <span className='profile-label'>{group.shortForm}</span>
+        <span className='group'>{group.name}</span>
       </div>
     </>
   );
