@@ -37,7 +37,7 @@
 #navbar-profile-text {
   position: absolute;
   color: white;
-  margin-left: 2.7em;
+  margin-left: 0.9em;
   margin-top: -0.2em;
 }
 
@@ -60,20 +60,20 @@
 
 #notes-text-field {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   bottom: 0;
   height: 27vh;
-  width: 74vw;
+  width: 77vw;
   background-color: #e8e8e8;
-  /* padding: 1em; */
-  /* padding-left: 1em; */
-  padding: 0.5em 1.3em 0.5em 1.3em;
   border-bottom-left-radius: 1em;
 }
 #notes-text-field > textarea {
   width: 73vw;
-  height: 20vh;
+  height: 19vh;
   position: absolute;
-  bottom: 3vh;
+  bottom: 1vh;
   border-radius: 0.4em;
   border: none;
   font-size: 1.3em;
@@ -89,21 +89,28 @@
 #note-add-button {
   position: absolute;
   bottom: 7vh;
-  right: 1vw;
+  right: 2vw;
   height: 4vh;
+  cursor: pointer;
 }
 
 .notes {
   display: flex;
-  gap: 8ch;
+  gap: 7ch;
   margin-left: 4vw;
   margin-right: 6vw;
+}
+
+.note > p {
+  margin: 0;
+  overflow-wrap: anywhere;
+  width: 55vw;
 }
 
 .date-time {
   color: #353535;
   font-weight: 500;
-  width: 6vw;
+  width: 8vw;
 }
 
 @media (max-width: 450px) {

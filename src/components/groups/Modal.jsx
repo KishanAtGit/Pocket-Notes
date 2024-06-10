@@ -33,7 +33,7 @@ export default function ModalComponent({
           <input
             id='modal-input'
             type='text'
-            placeholder='Enter your group name...'
+            placeholder='Enter your group name....'
             onChange={e => setInput(e.target.value)}
             value={input}
           />

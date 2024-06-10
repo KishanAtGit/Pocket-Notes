@@ -65,6 +65,7 @@ export default function App() {
       setGroupsAndNotes={setGroupsAndNotesData}
       currentSelectedGroup={currentSelectedGroup}
       setCurrentSelectedGroup={setCurrentSelectedGroup}
+      isMobile={isMobile}
     />
   );
 }

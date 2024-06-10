@@ -10,6 +10,7 @@ export default function index({
   setGroupsAndNotes,
   currentSelectedGroup,
   setCurrentSelectedGroup,
+  isMobile,
 }) {
   const [inputData, setInputData] = useState("");
 
@@ -57,7 +58,10 @@ export default function index({
           onClick={() =>
             setCurrentSelectedGroup(prev => ({ ...prev, groupName: "" }))
           }
-          style={{ cursor: "pointer" }}
+          style={{
+            cursor: "pointer",
+            display: `${!isMobile ? "none" : "block"}`,
+          }}
         >
           <img src={leftArrow} alt='' />
         </span>
