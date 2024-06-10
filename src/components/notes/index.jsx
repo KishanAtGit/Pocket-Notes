@@ -3,6 +3,7 @@ import Home from "./Home";
 import Note from "./Note";
 import "./index.css";
 import leftArrow from "../../assets/Vector.png";
+import sendButton from "../../assets/Vector2.png";
 
 export default function index({
   groupsandNotes,
@@ -103,9 +104,12 @@ export default function index({
           value={inputData}
           placeholder='Enter your text here...........'
         />
-        <button id='note-add-button' onClick={handleInput}>
-          Add
-        </button>
+        <img
+          id='note-add-button'
+          src={sendButton}
+          alt='sendButton'
+          onClick={handleInput}
+        />
       </div>
     </div>
   );

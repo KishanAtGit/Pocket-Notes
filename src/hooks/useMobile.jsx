@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export const useIsMobile = () => {
   // Define the breakpoint for mobile devices
-  const mobileBreakpoint = 400;
+  const mobileBreakpoint = 450;
 
   // State to hold the current value of whether the screen is mobile or not
   const [isMobile, setIsMobile] = useState(

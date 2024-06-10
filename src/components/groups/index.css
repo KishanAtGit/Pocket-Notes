@@ -135,7 +135,7 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
   .group-section {
     width: 100vw;
   }
@@ -160,7 +160,7 @@
   }
 
   .profile-label {
-    margin-left: 0.8em;
+    margin-left: 1.4em;
   }
 
   .modal {
