@@ -12,7 +12,7 @@ export default function Home() {
         Send and receive messages without keeping your phone online.
         <br /> Use Pocket Notes on up to 4 linked devices and 1 mobile phone
       </p>
-      <div style={{ position: "absolute", bottom: "1vh", left: "55%" }}>
+      <div style={{ position: "absolute", bottom: "1vh", left: "42%" }}>
         <img style={{ width: "11vw" }} src={encriptionText} alt='' />
       </div>
     </div>

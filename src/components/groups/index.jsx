@@ -13,8 +13,8 @@ export default function Groups({
 }) {
   const [modalOpen, setModalOpen] = useState(false);
 
-  const handleInput = (input, setInput, choosenColor) => {
-    input !== "" &&
+  const handleInput = (input, setInput, choosenColor, setChoosenColor) => {
+    if (input !== "" && choosenColor !== "") {
       setGroupsAndNotes(prev => {
         return [
           ...prev,
@@ -26,7 +26,10 @@ export default function Groups({
           },
         ];
       });
-    setInput("");
+      setInput("");
+      setChoosenColor("");
+      setModalOpen(false);
+    }
   };
 
   const openModal = () => setModalOpen(true);

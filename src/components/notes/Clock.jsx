@@ -1,4 +1,8 @@
 export const Clock = ({ currentTime }) => {
+  if (typeof currentTime === "string") {
+    currentTime = new Date(currentTime);
+  }
+
   const formatTime = date => {
     let hours = date.getHours();
     const minutes = date.getMinutes();
@@ -19,7 +23,7 @@ export const Clock = ({ currentTime }) => {
   };
 
   return (
-    <div>
+    <div className='date-time'>
       <div>{formatTime(currentTime)}</div>
       <div>{formatDate(currentTime)}</div>
     </div>

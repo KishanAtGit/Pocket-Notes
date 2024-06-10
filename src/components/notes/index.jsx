@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Home from "./Home";
 import Note from "./Note";
 import "./index.css";
@@ -23,13 +23,25 @@ export default function index({
 
         let currentDateAndTime = new Date();
         tempState[tempIndex].dateAndTime.push(currentDateAndTime);
+
+        localStorage.setItem("Data", JSON.stringify(tempState));
         return tempState;
       });
     setInputData("");
   };
 
+  // useEffect(() => {
+  //   localStorage.setItem("Data", JSON.stringify(groupsandNotes));
+  // }, [groupsandNotes]);
+
   return (
-    <div className='notes-section'>
+    <div
+      className='notes-section'
+      style={{
+        height: `${selectedGroup !== "" ? "98vh" : "100vh"}`,
+        borderBottomLeftRadius: `${selectedGroup !== "" ? "1em" : "0"}`,
+      }}
+    >
       <div
         style={{
           visibility: `${selectedGroup !== "" ? "visible" : "hidden"}`,
@@ -43,22 +55,25 @@ export default function index({
         <span id='navbar-label'>{currentSelectedGroup.groupName}</span>
       </div>
       {selectedGroup !== "" ? (
-        groupsandNotes.map(item => {
-          return (
-            item.groupName === selectedGroup &&
-            item.notes.map((note, i) => (
-              <Note
-                item={item}
-                note={note}
-                key={"edfre" + i}
-                dateAndTime={item.dateAndTime[i]}
-              />
-            ))
-          );
-        })
+        <div className='note-section'>
+          {groupsandNotes.map(item => {
+            return (
+              item.groupName === selectedGroup &&
+              item.notes.map((note, i) => (
+                <Note
+                  item={item}
+                  note={note}
+                  key={"edfre" + i}
+                  dateAndTime={item.dateAndTime[i]}
+                />
+              ))
+            );
+          })}
+        </div>
       ) : (
         <Home />
       )}
+
       <div
         id='notes-text-field'
         style={{

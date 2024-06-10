@@ -26,16 +26,16 @@ export default function App() {
   });
   // console.log(currentSelectedGroup);
 
-  // useEffect(() => {
-  //   const data = localStorage.getItem("Data");
-  //   if (data != []) setGroupsAndNotesData(prev => [...prev, JSON.parse(data)]);
-  //   console.log(JSON.parse(data));
-  //   console.log(groupsandNotesData);
-  // }, []);
+  useEffect(() => {
+    const data = localStorage.getItem("Data");
+    setGroupsAndNotesData(JSON.parse(data));
+    console.log(JSON.parse(data));
+    // console.log(groupsandNotesData);
+  }, []);
 
-  // useEffect(() => {
-  //   localStorage.setItem("Data", JSON.stringify(groupsandNotesData));
-  // }, [groupsandNotesData]);
+  useEffect(() => {
+    localStorage.setItem("Data", JSON.stringify(groupsandNotesData));
+  }, [groupsandNotesData]);
 
   return (
     <div className='main-page'>

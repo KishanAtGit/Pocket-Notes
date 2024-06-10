@@ -13,15 +13,7 @@ export default function ModalComponent({
   handleInput,
 }) {
   const [input, setInput] = useState("");
-  const [choosenColor, setChoosenColor] = useState(null);
-  //   const profile_background = {
-  //     color1: "#B38BFA",
-  //     color2: "#FF79F2",
-  //     color3: "#43E6FC",
-  //     color4: "#F19576",
-  //     color5: "#0047FF",
-  //     color6: "#6691FF",
-  //   };
+  const [choosenColor, setChoosenColor] = useState("");
 
   const closeModal = () => {
     setModalOpen(false);
@@ -31,8 +23,8 @@ export default function ModalComponent({
     <Modal
       isOpen={modalOpen}
       onRequestClose={closeModal}
-      ariaHideApp={false}
       className='modal'
+      ariaHideApp={false}
     >
       <div>Create New Notes group</div>
       <div>
@@ -51,29 +43,76 @@ export default function ModalComponent({
         <div>Choose Color</div>
         <div id='color-group' style={{ display: "flex", gap: "1ch" }}>
           <span onClick={() => setChoosenColor(color1)}>
-            <img src={color1} alt='color1' />
+            <img
+              style={{
+                border: `${
+                  choosenColor === color1 ? "2px solid grey" : "none"
+                }`,
+              }}
+              src={color1}
+              alt='color1'
+            />
           </span>
           <span onClick={() => setChoosenColor(color2)}>
-            <img src={color2} alt='color1' />
+            <img
+              style={{
+                border: `${
+                  choosenColor === color2 ? "2px solid grey" : "none"
+                }`,
+              }}
+              src={color2}
+              alt='color2'
+            />
           </span>
           <span onClick={() => setChoosenColor(color3)}>
-            <img src={color3} alt='color1' />
+            <img
+              style={{
+                border: `${
+                  choosenColor === color3 ? "2px solid grey" : "none"
+                }`,
+              }}
+              src={color3}
+              alt='color3'
+            />
           </span>
           <span onClick={() => setChoosenColor(color4)}>
-            <img src={color4} alt='color1' />
+            <img
+              style={{
+                border: `${
+                  choosenColor === color4 ? "2px solid grey" : "none"
+                }`,
+              }}
+              src={color4}
+              alt='color4'
+            />
           </span>
           <span onClick={() => setChoosenColor(color5)}>
-            <img src={color5} alt='color1' />
+            <img
+              style={{
+                border: `${
+                  choosenColor === color5 ? "2px solid grey" : "none"
+                }`,
+              }}
+              src={color5}
+              alt='color5'
+            />
           </span>
           <span onClick={() => setChoosenColor(color6)}>
-            <img src={color6} alt='color1' />
+            <img
+              style={{
+                border: `${
+                  choosenColor === color6 ? "2px solid grey" : "none"
+                }`,
+              }}
+              src={color6}
+              alt='color6'
+            />
           </span>
         </div>
       </div>
       <button
         onClick={() => {
-          handleInput(input, setInput, choosenColor);
-          input !== "" && closeModal();
+          handleInput(input, setInput, choosenColor, setChoosenColor);
         }}
         id='create-button'
       >
